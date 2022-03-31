@@ -65,8 +65,7 @@ contract DonationsContract {
           public 
           payable
     {
-        (bool sent, ) = to.call { value: amount }("");
-        require(sent, "Failed to transfer Ether");
+        to.transfer(amount);
     }
 
 

@@ -9,11 +9,13 @@ task("donatorsList", "Return list of donators")
     console.log("Getting donators list");
 
     const [owner] = await ethers.getSigners();
+
     const donationsContract = new ethers.Contract(
       donationsContractAddress,
       donationsArtefact.abi,
       owner
     );
+
     const result = await donationsContract.getDonators();
 
     console.log("Donators: ", result);
