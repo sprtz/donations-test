@@ -1,4 +1,4 @@
-require("./donate")
-require("./donatorList")
-require("./totalAmountFrom")
-require("./withdraw")
+require("./donate");
+require("./donatorsList");
+require("./totalAmount");
+require("./withdraw");

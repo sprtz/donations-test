@@ -6,7 +6,7 @@ async function main() {
     const [owner] = await ethers.getSigners();
     console.log(`Deploy contract with the account: ${owner.address}`);
 
-    const donationsFactory = await ethers.getContractFactory('Donations');
+    const donationsFactory = await ethers.getContractFactory('DonationsContract');
     const donationsContract = await donationsFactory.deploy();
 
     console.log(`Contract deployed! Donations contract address: ${donationsContract.address}`); 

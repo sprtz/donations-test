@@ -1,11 +1,11 @@
 require("@nomiclabs/hardhat-ethers");
 
-const donationsArtefact = require("");
-const donationsContractAddress = "";
+const donationsArtefact = require("./DonationsContractAbi.json");
+const donationsContractAddress = "0x9c8F1353Db32fAa6419C033b592a19adA809BC4a";
 
 
-task("totalAmountFrom", "Return total amount from address")
-.addParams("address", "donator address")
+task("totalAmount", "Return total amount from address")
+.addParam("address", "The address of donator")
 .setAction(async (taskArgs) => {
     console.log("Getting total amount from: ", taskArgs.address);
 
@@ -15,7 +15,7 @@ task("totalAmountFrom", "Return total amount from address")
       donationsArtefact.abi,
       owner
     );
-    const result = await donationContract.totalAmount(taskArgs.address);
+    const result = await donationsContract.totalAmount(taskArgs.address);
     
     console.log("Total amount: ", result);
 });

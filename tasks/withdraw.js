@@ -1,19 +1,19 @@
 require("@nomiclabs/hardhat-ethers");
 
-const DonationsArtefact = require('./DonationsAbi.json');
-const donationsContractAddress = '0x61AbC70576DFf84824511a9632E65E7094abCAB5';
+const donationsArtefact = require("./DonationsContractAbi.json");
+const donationsContractAddress = "0x9c8F1353Db32fAa6419C033b592a19adA809BC4a";
 
-task('withdraw', 'Withdraws specified amound of funds to the address')
-  .addParam('address', 'The address to receive funds')
-  .addParam('amount', 'The amount of funds to be withdrawed')
+task("withdraw", "Withdraws specified amound of funds to the address")
+  .addParam("address", "The address to receive funds")
+  .addParam("amount", "The amount of funds to be withdrawed")
   .setAction(async (taskArgs) => {
-    console.log(`Withdrawing ${taskArgs.amount} ETH to ${taskArgs.address} ...`);
+    console.log(`Withdrawing ${taskArgs.amount} ETH to ${taskArgs.address}`);
 
     const [owner] = await ethers.getSigners();
 
     const donationsContract = new ethers.Contract(
       donationsContractAddress,
-      DonationsArtefact.abi,
+      donationsArtefact.abi,
       owner
     );
 

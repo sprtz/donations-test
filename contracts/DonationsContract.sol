@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.4;
 
 
 contract DonationsContract {
@@ -41,30 +41,16 @@ contract DonationsContract {
 
 
     /**
-    Проверка на переполнение беззнакового целого
-     */
-    modifier uintIsNotOverflow(
-        uint amount) 
-    {
-        require(
-            amount < 1e60,
-             "uint overflow");
-        _;
-    }
-
-
-    /**
     Функция вноса любой суммы
      */
     function donate() 
            public
            payable 
     {
-
-        donations[msg.sender] += msg.value;
         if(donations[msg.sender] == 0) {
             donators.push(msg.sender);
         }
+        donations[msg.sender] += msg.value;
     }
 
 
