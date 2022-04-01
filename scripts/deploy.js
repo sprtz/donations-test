@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 
-// const deployedContractAddress = "0x61AbC70576DFf84824511a9632E65E7094abCAB5";
+
 
 async function main() {
     const [owner] = await ethers.getSigners();
